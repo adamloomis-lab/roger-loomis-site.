@@ -227,6 +227,34 @@
   </div>
 </section>
 
+<!-- FREE NEWSLETTER -->
+<section class="newsletter-section reveal" aria-label="Free Newsletter Signup">
+  <div class="container">
+    <div class="newsletter-card">
+      <div class="newsletter-copy">
+        <span class="label">Free Encouragement by Email</span>
+        <h2>Receive Occasional Notes for Faith, Family, and Leadership</h2>
+        <div class="divider divider--left"></div>
+        <p>Join Roger's free email list for thoughtful encouragement, ministry reflections, and practical resources sent occasionally to your inbox.</p>
+      </div>
+      <form class="newsletter-form" name="free-newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="free-newsletter" />
+        <p class="hidden-field">
+          <label>Do not fill this out if you are human: <input name="bot-field" /></label>
+        </p>
+        <div class="newsletter-fields">
+          <label for="newsletter-name">Name</label>
+          <input id="newsletter-name" type="text" name="name" autocomplete="name" placeholder="Your name" />
+          <label for="newsletter-email">Email Address</label>
+          <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Join the Free Newsletter</button>
+        <p class="newsletter-note">No spam — just occasional encouragement and updates.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="site-footer" aria-label="Site footer">
   <div class="container">
