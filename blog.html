@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Roger Loomis</title>
+  <meta name="description" content="Weekly encouragement, ministry insights, and Biblical wisdom from Roger Loomis." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .blog-main { padding: 90px 0; background: var(--cream); }
+    .blog-intro { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+    .blog-intro p { font-size: 1.05rem; color: var(--mid); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+    .blog-card { background: var(--white); border-radius: 8px; padding: 34px 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 330px; }
+    .blog-card__meta { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .blog-card h3 { font-size: 1.55rem; margin-bottom: 0.9rem; }
+    .blog-card p { color: var(--mid); flex: 1; }
+    .blog-card .btn { align-self: flex-start; margin-top: 1.2rem; }
+    .blog-subscribe { background: var(--dark); padding: 80px 0; text-align: center; }
+    .blog-subscribe h2 { color: var(--white); }
+    .blog-subscribe .divider { margin: 1rem auto 1.5rem; }
+    .blog-subscribe p { color: rgba(255,255,255,0.78); max-width: 580px; margin: 0 auto 2rem; }
+    @media (max-width: 980px) { .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 650px) { .blog-grid { grid-template-columns: 1fr; } .blog-card { min-height: 0; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Roger Loomis Home">
+      <img src="assets/logo.webp" alt="Roger Loomis" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="contact.html" class="btn btn-primary">Get In Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Encouragement and Insight</span>
+    <h1>Roger's Blog</h1>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto;font-size:1.05rem;">Practical advice, Biblical wisdom, and real-life insights for faith and ministry.</p>
+  </div>
+</div>
+
+<!-- BLOG MAIN -->
+<section class="blog-main">
+  <div class="container">
+    <div class="blog-intro reveal">
+      <span class="label">Weekly Posts</span>
+      <h2>Stay Encouraged and Inspired</h2>
+      <div class="divider"></div>
+      <p>Roger writes weekly on topics that matter to pastors, church leaders, parents, and serious followers of Christ. From ministry challenges to everyday faith, these posts are grounded in Scripture and real experience.</p>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>Arguing the Scriptures</h3>
+  <p>Every Tuesday evening – unless otherwise announced – a group of our men gather in the cafe to engage in a verse-by-verse study of selected Bible books. Currently, we are concl…</p>
+  <a href="blog/arguing-the-scriptures.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>Caught Up in the Moment</h3>
+  <p>Recently, while mowing the church lawn, I got caught up in a spirit of praise and worship. Heaven came down and kissed me while grass flew everywhere! It was truly a time of h…</p>
+  <a href="blog/caught-up-in-the-moment.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>Do You Keep Your Word?</h3>
+  <p>Freelance writer, Nicole Bradley-Bernard, said, “People with good intentions make promises. But people with good character keep them.” So, what’s the big deal about making pro…</p>
+  <a href="blog/do-you-keep-your-word.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>Questions While at Church</h3>
+  <p>Gathering with God’s people over the years has been a wonderful highlight of my life. I absolutely love the praise and worship, the preached Word, giving in the offering, hang…</p>
+  <a href="blog/questions-while-at-church.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>The Problem with Disagreeing</h3>
+  <p>Thirty years ago, when I was pastoring an Assemblies of God church in Alabama, emotional eruptions in a Sunday School class that was studying current events necessitated my as…</p>
+  <a href="blog/the-problem-with-disagreeing.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>What is a Cult?</h3>
+  <p>In today’s world we hear a lot of talk about cults . Let me define the word, “cult.” Simply put, cults have three distinct characteristics:</p>
+  <a href="blog/what-is-a-cult.html" class="btn btn-dark">Read Post</a>
+</article>
+<article class="blog-card reveal">
+  <div class="blog-card__meta">Weekly Encouragement</div>
+  <h3>Why?</h3>
+  <p>Why? It’s a question I’m ashamed to admit I’ve been asking a lot. More specifically, why am I on earth? I think everyone struggles with this question at some point – whether i…</p>
+  <a href="blog/why.html" class="btn btn-dark">Read Post</a>
+</article>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE CTA -->
+<section class="blog-subscribe">
+  <div class="container reveal">
+    <span class="label" style="color:var(--gold-lt);">Never Miss a Post</span>
+    <h2>Stay Encouraged and Inspired with Roger Loomis's Weekly Blogs</h2>
+    <div class="divider"></div>
+    <p>Subscribe now for practical advice, Biblical wisdom, and real-life insights delivered straight to your inbox. Perfect for anyone passionate about faith and ministry.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://buy.stripe.com/eVa15Lf7DckL0tW3cc" target="_blank" rel="noopener" class="btn btn-primary">Subscribe Now — $3.99/mo</a>
+      <a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener" class="btn btn-outline">Watch on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="Roger Loomis" />
+        <p>Practical wisdom and encouragement for your ministry and everyday life. Resourcing leaders to encourage others.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="contact.html">Get In Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener">YouTube Channel</a></li>
+          <li><a href="https://amazon.com/dp/B0GV1T7XSS" target="_blank" rel="noopener">Healing Our Broken Places</a></li>
+          <li><a href="https://amazon.com/dp/1639034358" target="_blank" rel="noopener">Monday Morning Preacher</a></li>
+          <li><a href="https://irp.cdn-website.com/22d35c09/files/uploaded/Running_Your_Race_Ebook.pdf" target="_blank" rel="noopener">Running Your Race (Free)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Roger Loomis. All rights reserved.</span>
+      <span>rogerloomis.us</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

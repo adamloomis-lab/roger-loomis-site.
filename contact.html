@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get In Touch — Roger Loomis</title>
+  <meta name="description" content="Have questions, need guidance, or want to connect with Roger Loomis? We'd love to hear from you." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .contact-main { padding: 90px 0; background: var(--cream); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info h3 { margin-bottom: 1rem; }
+    .contact-info p { color: var(--mid); font-size: 16px; }
+    .contact-links { margin-top: 2rem; }
+    .contact-link-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .contact-link-item .icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: white;
+    }
+    .contact-link-item .text strong {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .contact-link-item .text a,
+    .contact-link-item .text span { font-size: 16px; color: var(--charcoal); }
+    .contact-link-item .text a:hover { color: var(--gold); }
+
+    .contact-form-box {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 44px;
+      box-shadow: var(--shadow);
+    }
+    .contact-form-box h3 { margin-bottom: 0.5rem; }
+    .contact-form-box p { color: var(--mid); font-size: 16px; margin-bottom: 1.8rem; }
+
+    .form-success { text-align: center; padding: 40px 0; }
+    .form-success h3 { color: var(--dark); margin-bottom: 0.5rem; }
+    .form-success p { color: var(--mid); }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      .contact-form-box { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Roger Loomis Home">
+      <img src="assets/logo.webp" alt="Roger Loomis" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="contact.html" class="btn btn-primary active">Get In Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">We're Here to Help</span>
+    <h1>Get In Touch</h1>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto;font-size:1.05rem;">Have questions, need guidance, or just want to connect? We'd love to hear from you.</p>
+  </div>
+</div>
+
+<!-- CONTACT MAIN -->
+<section class="contact-main">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFO SIDE -->
+      <div class="reveal">
+        <span class="label">Connect with Roger</span>
+        <h3>Let's Talk</h3>
+        <div class="divider divider--left"></div>
+        <p>Whether you have a question about one of Roger's books, want to inquire about speaking engagements, or simply want to reach out and connect — this is the place. Roger and his team do their best to respond to every message.</p>
+        <div class="contact-links">
+          <div class="contact-link-item">
+            <div class="icon">🌐</div>
+            <div class="text">
+              <strong>Website</strong>
+              <span>rogerloomis.us</span>
+            </div>
+          </div>
+          <div class="contact-link-item">
+            <div class="icon">▶</div>
+            <div class="text">
+              <strong>YouTube</strong>
+              <a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener">@RevRogerLoomis</a>
+            </div>
+          </div>
+          <div class="contact-link-item">
+            <div class="icon">📚</div>
+            <div class="text">
+              <strong>Books on Amazon</strong>
+              <a href="books.html">View all books</a>
+            </div>
+          </div>
+          <div class="contact-link-item">
+            <div class="icon">✉️</div>
+            <div class="text">
+              <strong>Subscribe</strong>
+              <a href="subscribe.html">Weekly encouragement — $3.99/mo</a>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <img src="assets/roger-lori.webp" alt="Roger and Lori Loomis" style="border-radius:6px;box-shadow:var(--shadow);" />
+        </div>
+      </div>
+
+      <!-- FORM SIDE -->
+      <div class="contact-form-box reveal">
+        <h3>Send a Message</h3>
+        <p>Fill out the form below and Roger's team will be in touch soon.</p>
+        <form id="contact-form" novalidate>
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="New message from rogerloomis.us" />
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Roger Loomis" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Book Question">Book Question</option>
+              <option value="Speaking Engagement">Speaking Engagement</option>
+              <option value="Group Study Pricing">Group Study Pricing (Running Your Race)</option>
+              <option value="Subscription Question">Subscription Question</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="How can Roger help you?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;font-size:0.85rem;padding:16px;">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="Roger Loomis" />
+        <p>Practical wisdom and encouragement for your ministry and everyday life. Resourcing leaders to encourage others.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="contact.html">Get In Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener">YouTube Channel</a></li>
+          <li><a href="https://amazon.com/dp/B0GV1T7XSS" target="_blank" rel="noopener">Healing Our Broken Places</a></li>
+          <li><a href="https://amazon.com/dp/1639034358" target="_blank" rel="noopener">Monday Morning Preacher</a></li>
+          <li><a href="https://irp.cdn-website.com/22d35c09/files/uploaded/Running_Your_Race_Ebook.pdf" target="_blank" rel="noopener">Running Your Race (Free)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Roger Loomis. All rights reserved.</span>
+      <span>rogerloomis.us</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

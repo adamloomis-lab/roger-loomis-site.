@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roger Loomis — Encouraging Faith and Leadership</title>
+  <meta name="description" content="Practical wisdom and encouragement for your ministry and everyday life from pastor, author, and speaker Roger Loomis." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Stats strip */
+    .stats-strip { background: var(--gold); padding: 28px 0; }
+    .stats-inner { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stat { text-align: center; color: var(--white); }
+    .stat__num { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 700; display: block; line-height: 1; }
+    .stat__label { font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.9; }
+
+    /* Book section on dark bg */
+    .featured-section { background: var(--dark); padding: 90px 0; }
+    .featured-section .label { color: var(--gold-lt); }
+    .featured-section h2 { color: var(--white); }
+    .featured-section .tagline { color: rgba(255,255,255,0.65); }
+    .featured-section p { color: rgba(255,255,255,0.82); }
+    .featured-section ul { color: rgba(255,255,255,0.82); }
+    .featured-section .closing { color: rgba(255,255,255,0.9); border-color: var(--gold); }
+    .featured-section .divider { background: var(--gold); }
+
+    /* Books preview strip */
+    .books-preview { background: var(--light); padding: 90px 0; }
+    .books-preview h2 { text-align: center; }
+    .books-preview .divider { margin: 1rem auto 3rem; }
+
+    /* YouTube section */
+    .yt-cta { margin-top: 1.5rem; }
+
+    /* Footer CTA banner */
+    .footer-cta { background: var(--charcoal); padding: 70px 0; text-align: center; }
+    .footer-cta h2 { color: var(--white); margin-bottom: 0.5rem; }
+    .footer-cta p { color: rgba(255,255,255,0.78); max-width: 580px; margin: 0 auto 2rem; }
+
+    /* Book cover placeholder */
+    .cover-placeholder {
+      background: linear-gradient(135deg, #1a3a2a 0%, #2d5a3d 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      color: white;
+      font-family: var(--font-serif);
+      min-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Roger Loomis Home">
+      <img src="assets/logo.webp" alt="Roger Loomis" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="subscribe.html">Subscribe</a></li>
+      <li><a href="contact.html" class="btn btn-primary">Get In Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/rogerhero.webp" aria-hidden="true">
+      <source src="assets/media/download.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="hero-content">
+    <span class="label">Encouraging Faith and Leadership</span>
+    <h1>Hi, I'm Roger Loomis — Let's Grow Together in Faith</h1>
+    <p>Practical wisdom and encouragement for your ministry and everyday life.</p>
+    <p>I have pastored six churches over the last five decades, and like all church leaders, have taken my lumps. Instead of playing the victim, I want to share not only my ministry experiences but also offer several resources to bless you.</p>
+    <div class="hero-ctas">
+      <a href="about.html" class="btn btn-primary">About Roger</a>
+      <a href="books.html" class="btn btn-outline">Books Available</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat__num">43+</span>
+      <span class="stat__label">Years of Ministry</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">6</span>
+      <span class="stat__label">Churches Pastored</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">4</span>
+      <span class="stat__label">Books Published</span>
+    </div>
+    <div class="stat">
+      <span class="stat__num">9</span>
+      <span class="stat__label">Grandchildren</span>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED BOOK: HEALING OUR BROKEN PLACES -->
+<section class="featured-section" aria-label="Featured Book">
+  <div class="container">
+    <div class="featured-book reveal">
+      <div class="featured-book__cover">
+        <img src="assets/books/healing-broken-places-front.jpg" alt="Healing Our Broken Places by Roger Loomis" />
+      </div>
+      <div class="featured-book__content">
+        <span class="label">#1 New Release in Religious Counseling</span>
+        <h2>Healing Our Broken Places</h2>
+        <div class="divider divider--left"></div>
+        <p class="tagline">Helping One Another to Reach Our Full Potential in Christ as We Allow God to Heal Our Wounded Soul</p>
+        <p>Many believers love Jesus deeply — yet still carry wounds, patterns, and struggles that don't seem to go away. Roger Loomis addresses the often-overlooked reality that salvation and healing are not the same thing. With biblical clarity, pastoral wisdom, and real-life insight, this book offers a clear and compassionate path toward restoration.</p>
+        <p class="closing">You are saved. And you don't have to stay broken.</p>
+        <a href="https://amazon.com/dp/B0GV1T7XSS" target="_blank" rel="noopener" class="btn btn-primary">Buy Now on Amazon</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE SECTION -->
+<section class="subscribe-banner section" aria-label="Subscribe">
+  <div class="container reveal">
+    <span class="label" style="color:var(--gold-lt);">Weekly Encouragement</span>
+    <h2>Subscribe to My YouTube Channel</h2>
+    <div class="divider"></div>
+    <p>For just $3.99 a month, receive weekly motivational emails and videos packed with practical insights, Biblical wisdom, and encouragement to help you grow in your faith and leadership. Perfect for those who love the local church and want to deepen their walk with Christ.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+      <a href="https://buy.stripe.com/eVa15Lf7DckL0tW3cc" target="_blank" rel="noopener" class="btn btn-primary">Subscribe Now — $3.99/mo</a>
+      <a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener" class="btn btn-outline">Visit YouTube Channel</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS PREVIEW -->
+<section class="books-preview" aria-label="Books">
+  <div class="container">
+    <span class="label" style="display:block;text-align:center;">From Roger's Library</span>
+    <h2>Books for Ministry and Life</h2>
+    <div class="divider"></div>
+    <div class="books-grid">
+
+      <div class="book-card reveal">
+        <div class="book-card__img">
+          <img class="book-cover-art" src="assets/books/raising-parents-front.webp" alt="Raising Parents Is Tough by Roger Loomis" />
+        </div>
+        <div class="book-card__body">
+          <h3>Raising Parents Is Tough</h3>
+          <div class="subtitle">A Practical Guide to Biblical Parenting</div>
+          <p>Parenting doesn't come with a handbook — until now. Practical, Scripture-based advice to help parents guide their children with love and integrity at every stage.</p>
+        </div>
+        <div class="book-card__footer">
+          <a href="https://amazon.com/Raising-Parents-Tough-Parenting-Survival/dp/1958304603" target="_blank" rel="noopener" class="btn btn-dark">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-card__img">
+          <img src="assets/rlbanner.webp" alt="Monday Morning Preacher" style="max-height:200px;width:auto;margin:0 auto;" />
+        </div>
+        <div class="book-card__body">
+          <h3>Monday Morning Preacher</h3>
+          <div class="subtitle">Navigating the Challenges of Ministry</div>
+          <p>Forty real-world issues pastors encounter — many not covered in Bible school. Practical chapters and reflection questions drawn from 43 years of pastoral experience.</p>
+        </div>
+        <div class="book-card__footer">
+          <a href="https://amazon.com/dp/1639034358" target="_blank" rel="noopener" class="btn btn-dark">Buy on Amazon</a>
+        </div>
+      </div>
+
+      <div class="book-card reveal">
+        <div class="book-card__img">
+          <div class="cover-placeholder" style="background:linear-gradient(135deg,#2a2a4a,#3d3d6a);">
+            <div>
+              <div style="font-size:1.4rem;font-weight:700;margin-bottom:8px;">Running<br>Your Race</div>
+              <div style="font-size:0.85rem;opacity:0.8;">Roger Loomis</div>
+            </div>
+          </div>
+        </div>
+        <div class="book-card__body">
+          <h3>Running Your Race</h3>
+          <div class="subtitle">A Foundation for Serious Christ Followers</div>
+          <p>Covers salvation, spiritual disciplines, and summaries of every book in the Bible. Helps believers stay the course and finish strong in their faith.</p>
+        </div>
+        <div class="book-card__footer">
+          <a href="https://irp.cdn-website.com/22d35c09/files/uploaded/Running_Your_Race_Ebook.pdf" target="_blank" rel="noopener" class="btn btn-primary">Download Free</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="books.html" class="btn btn-dark">View All Books</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-block reveal">
+  <div class="container">
+    <blockquote>"I don't have all the answers but would love to resource leaders to encourage others."</blockquote>
+    <cite>Roger Loomis — Pastor, Author, Speaker</cite>
+  </div>
+</div>
+
+<!-- ABOUT PREVIEW -->
+<section class="section section--white" aria-label="About Roger">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <img src="assets/roger-lori.webp" alt="Roger and Lori Loomis" />
+      </div>
+      <div class="reveal">
+        <span class="label">About Roger</span>
+        <h2>43 Years of Pastoral Experience</h2>
+        <div class="divider divider--left"></div>
+        <p>Roger and Lori Loomis bring over 43 years of pastoral experience to their ministry and family life. Graduates of Evangel University, with postgraduate work at Liberty University, they have pastored six churches across North Carolina, Alabama, and Ohio.</p>
+        <p>Currently, they lead Hope Community Church, a nondenominational congregation they founded in Jefferson, Ohio. Roger and Lori are ordained through the E4 Ministry Network and are proud parents of four children and grandparents to nine.</p>
+        <a href="about.html" class="btn btn-primary mt-3">Read Roger's Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="container reveal">
+    <span class="label" style="color:var(--gold-lt);">Stay Connected</span>
+    <h2>Stay Encouraged and Inspired</h2>
+    <p>Subscribe now for practical advice, Biblical wisdom, and real-life insights delivered straight to your inbox. Perfect for anyone passionate about faith and ministry.</p>
+    <a href="subscribe.html" class="btn btn-primary">Subscribe Now</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="Roger Loomis" />
+        <p>Practical wisdom and encouragement for your ministry and everyday life. Resourcing leaders to encourage others.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="contact.html">Get In Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener">YouTube Channel</a></li>
+          <li><a href="https://amazon.com/dp/B0GV1T7XSS" target="_blank" rel="noopener">Healing Our Broken Places</a></li>
+          <li><a href="https://amazon.com/dp/1639034358" target="_blank" rel="noopener">Monday Morning Preacher</a></li>
+          <li><a href="https://irp.cdn-website.com/22d35c09/files/uploaded/Running_Your_Race_Ebook.pdf" target="_blank" rel="noopener">Running Your Race (Free)</a></li>
+          <li><a href="https://buy.stripe.com/eVa15Lf7DckL0tW3cc" target="_blank" rel="noopener">Subscribe — $3.99/mo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Roger Loomis. All rights reserved.</span>
+      <span>rogerloomis.us</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

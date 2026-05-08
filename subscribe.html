@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subscribe — Roger Loomis Weekly Encouragement</title>
+  <meta name="description" content="Subscribe for weekly motivational emails and videos from Roger Loomis. Practical insights, Biblical wisdom, and encouragement for $3.99/month." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .sub-main { padding: 90px 0; background: var(--cream); }
+    .sub-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .sub-card__header {
+      background: var(--dark);
+      padding: 48px 48px 36px;
+      text-align: center;
+    }
+    .sub-card__header h2 { color: var(--white); margin-bottom: 0.5rem; }
+    .sub-card__header p { color: rgba(255,255,255,0.78); margin: 0; }
+    .sub-card__body { padding: 40px 48px; }
+    .sub-card__body .price-badge { display: block; text-align: center; }
+
+    .yt-strip { background: var(--dark); padding: 80px 0; }
+    .yt-strip h2 { color: var(--white); text-align: center; }
+    .yt-strip .divider { margin: 1rem auto 2rem; }
+    .yt-strip p { color: rgba(255,255,255,0.78); text-align: center; max-width: 560px; margin: 0 auto 2rem; }
+    .yt-strip .yt-embed { margin-top: 2rem; }
+
+    .sub-features { padding: 80px 0; background: var(--light); }
+    .sub-features h2 { text-align: center; }
+    .sub-features .divider { margin: 1rem auto 3rem; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .feature-item .icon { font-size: 2.2rem; display: block; margin-bottom: 14px; }
+    .feature-item h4 { margin-bottom: 0.5rem; }
+    .feature-item p { font-size: 15px; color: var(--mid); margin: 0; }
+
+    @media (max-width: 600px) {
+      .sub-card__header { padding: 36px 28px 28px; }
+      .sub-card__body { padding: 32px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Roger Loomis Home">
+      <img src="assets/logo.webp" alt="Roger Loomis" />
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="subscribe.html" class="active">Subscribe</a></li>
+      <li><a href="contact.html" class="btn btn-primary">Get In Touch</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Stay Encouraged Every Week</span>
+    <h1>Weekly Encouragement for Life and Ministry</h1>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto;font-size:1.05rem;">Practical insights, Biblical wisdom, and real encouragement delivered to your inbox.</p>
+  </div>
+</div>
+
+<!-- MAIN SUBSCRIBE -->
+<section class="sub-main">
+  <div class="container">
+    <div class="sub-card reveal">
+      <div class="sub-card__header">
+        <span class="label" style="color:var(--gold-lt);">Monthly Subscription</span>
+        <h2>Join Roger's Weekly Community</h2>
+        <p>For just $3.99 a month, receive weekly motivational emails and videos packed with practical insights, Biblical wisdom, and encouragement to help you grow in your faith and leadership.</p>
+      </div>
+      <div class="sub-card__body">
+        <span class="price-badge">$3.99 / month</span>
+        <ul class="perks-list" style="margin: 1.8rem auto 2rem; display:block;">
+          <li>Weekly motivational email from Roger</li>
+          <li>Exclusive video content for subscribers</li>
+          <li>Practical insights for ministry and everyday life</li>
+          <li>Biblical wisdom grounded in 43 years of experience</li>
+          <li>Encouragement to grow in faith and leadership</li>
+          <li>Perfect for those who love the local church</li>
+        </ul>
+        <div style="text-align:center;">
+          <a href="https://buy.stripe.com/eVa15Lf7DckL0tW3cc" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:0.9rem;padding:16px 40px;">Subscribe Now — $3.99/mo</a>
+          <p style="font-size:14px;color:var(--mid);margin-top:14px;">Secure payment via Stripe. Cancel anytime.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sub-features">
+  <div class="container">
+    <span class="label" style="text-align:center;display:block;">What You Get</span>
+    <h2>Everything Included in Your Subscription</h2>
+    <div class="divider"></div>
+    <div class="features-grid reveal">
+      <div class="feature-item">
+        <span class="icon">✉️</span>
+        <h4>Weekly Email</h4>
+        <p>A personal note from Roger with encouragement, insight, and a word for your week.</p>
+      </div>
+      <div class="feature-item">
+        <span class="icon">🎥</span>
+        <h4>Video Content</h4>
+        <p>Exclusive videos packed with practical ministry wisdom and faith encouragement.</p>
+      </div>
+      <div class="feature-item">
+        <span class="icon">📖</span>
+        <h4>Biblical Grounding</h4>
+        <p>Every piece of content rooted in Scripture and 43 years of pastoral experience.</p>
+      </div>
+      <div class="feature-item">
+        <span class="icon">🤝</span>
+        <h4>Community</h4>
+        <p>Join a growing community of pastors, leaders, and Christ followers walking the same road.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE SECTION -->
+<section class="yt-strip">
+  <div class="container">
+    <span class="label" style="color:var(--gold-lt);text-align:center;display:block;">Free on YouTube</span>
+    <h2>Watch Roger on YouTube</h2>
+    <div class="divider"></div>
+    <p>Subscribe to Roger's YouTube channel for free weekly encouragement, ministry insights, and more.</p>
+    <div style="text-align:center;margin-bottom:2rem;">
+      <a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener" class="btn btn-primary">Visit YouTube Channel</a>
+    </div>
+    <div class="yt-embed reveal">
+      <iframe
+        src="https://www.youtube.com/embed?listType=user_uploads&list=RevRogerLoomis"
+        title="Roger Loomis YouTube Channel"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="Roger Loomis" />
+        <p>Practical wisdom and encouragement for your ministry and everyday life. Resourcing leaders to encourage others.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="subscribe.html">Subscribe</a></li>
+          <li><a href="contact.html">Get In Touch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="https://youtube.com/@RevRogerLoomis" target="_blank" rel="noopener">YouTube Channel</a></li>
+          <li><a href="https://amazon.com/dp/B0GV1T7XSS" target="_blank" rel="noopener">Healing Our Broken Places</a></li>
+          <li><a href="https://amazon.com/dp/1639034358" target="_blank" rel="noopener">Monday Morning Preacher</a></li>
+          <li><a href="https://irp.cdn-website.com/22d35c09/files/uploaded/Running_Your_Race_Ebook.pdf" target="_blank" rel="noopener">Running Your Race (Free)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Roger Loomis. All rights reserved.</span>
+      <span>rogerloomis.us</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
