@@ -4,20 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog — Roger Loomis</title>
-  <meta name="description" content="Weekly encouragement, ministry insights, and Biblical wisdom from Roger Loomis." />
+  <meta name="description" content="Weekly encouragement, ministry insights, and Biblical wisdom from Roger Loomis. Search and browse the full archive of posts." />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
     .blog-main { padding: 90px 0; background: var(--cream); }
-    .blog-intro { max-width: 680px; margin: 0 auto 56px; text-align: center; }
+    .blog-intro { max-width: 680px; margin: 0 auto 40px; text-align: center; }
     .blog-intro p { font-size: 1.05rem; color: var(--mid); }
+    /* toolbar */
+    .blog-tools { max-width: 920px; margin: 0 auto 38px; }
+    .blog-search { position: relative; margin-bottom: 20px; }
+    .blog-search input { width: 100%; padding: 16px 18px 16px 48px; font-size: 1rem; font-family: var(--font-sans); border: 1px solid rgba(0,0,0,0.12); border-radius: 8px; background: var(--white); color: var(--text); box-shadow: var(--shadow); }
+    .blog-search input:focus { outline: none; border-color: var(--gold); }
+    .blog-search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--mid); }
+    .blog-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .filter-chip { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.14); background: var(--white); color: var(--mid); cursor: pointer; transition: all 0.2s ease; }
+    .filter-chip:hover { border-color: var(--gold); color: var(--dark); }
+    .filter-chip.active { background: var(--dark); border-color: var(--dark); color: var(--white); }
+    .blog-count { text-align: center; font-family: var(--font-sans); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); margin-bottom: 30px; }
     .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
     .blog-card { background: var(--white); border-radius: 8px; padding: 34px 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 330px; }
     .blog-card__meta { font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
     .blog-card h3 { font-size: 1.55rem; margin-bottom: 0.9rem; }
     .blog-card p { color: var(--mid); flex: 1; }
     .blog-card .btn { align-self: flex-start; margin-top: 1.2rem; }
+    .blog-empty { text-align: center; color: var(--mid); padding: 60px 0; font-size: 1.05rem; display: none; }
     @media (max-width: 980px) { .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 650px) { .blog-grid { grid-template-columns: 1fr; } .blog-card { min-height: 0; } }
   </style>
@@ -57,55 +69,141 @@
 <section class="blog-main">
   <div class="container">
     <div class="blog-intro reveal">
-      <span class="label">Weekly Posts</span>
-      <h2>Stay Encouraged and Inspired</h2>
+      <span class="label">The Archive</span>
+      <h2>Browse Every Post</h2>
       <div class="divider"></div>
-      <p>Roger writes weekly on topics that matter to pastors, church leaders, parents, and serious followers of Christ. From ministry challenges to everyday faith, these posts are grounded in Scripture and real experience.</p>
+      <p>Roger writes on topics that matter to pastors, church leaders, parents, and serious followers of Christ. Search by keyword or filter by topic to find what speaks to you.</p>
     </div>
-    <div class="blog-grid">
-      <article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>Arguing the Scriptures</h3>
-  <p>Every Tuesday evening – unless otherwise announced – a group of our men gather in the cafe to engage in a verse-by-verse study of selected Bible books. Currently, we are concl…</p>
-  <a href="blog/arguing-the-scriptures.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>Caught Up in the Moment</h3>
-  <p>Recently, while mowing the church lawn, I got caught up in a spirit of praise and worship. Heaven came down and kissed me while grass flew everywhere! It was truly a time of h…</p>
-  <a href="blog/caught-up-in-the-moment.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>Do You Keep Your Word?</h3>
-  <p>Freelance writer, Nicole Bradley-Bernard, said, “People with good intentions make promises. But people with good character keep them.” So, what’s the big deal about making pro…</p>
-  <a href="blog/do-you-keep-your-word.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>Questions While at Church</h3>
-  <p>Gathering with God’s people over the years has been a wonderful highlight of my life. I absolutely love the praise and worship, the preached Word, giving in the offering, hang…</p>
-  <a href="blog/questions-while-at-church.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>The Problem with Disagreeing</h3>
-  <p>Thirty years ago, when I was pastoring an Assemblies of God church in Alabama, emotional eruptions in a Sunday School class that was studying current events necessitated my as…</p>
-  <a href="blog/the-problem-with-disagreeing.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>What is a Cult?</h3>
-  <p>In today’s world we hear a lot of talk about cults . Let me define the word, “cult.” Simply put, cults have three distinct characteristics:</p>
-  <a href="blog/what-is-a-cult.html" class="btn btn-dark">Read Post</a>
-</article>
-<article class="blog-card reveal">
-  <div class="blog-card__meta">Weekly Encouragement</div>
-  <h3>Why?</h3>
-  <p>Why? It’s a question I’m ashamed to admit I’ve been asking a lot. More specifically, why am I on earth? I think everyone struggles with this question at some point – whether i…</p>
-  <a href="blog/why.html" class="btn btn-dark">Read Post</a>
-</article>
+
+    <div class="blog-tools">
+      <div class="blog-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" id="blog-search-input" placeholder="Search posts by title or topic..." aria-label="Search posts" />
+      </div>
+      <div class="blog-filters" id="blog-filters" role="group" aria-label="Filter by topic">
+      <button class="filter-chip active" data-cat="all">All</button>
+      <button class="filter-chip" data-cat="Faith &amp; Salvation">Faith &amp; Salvation</button>
+      <button class="filter-chip" data-cat="Church Life">Church Life</button>
+      <button class="filter-chip" data-cat="Christian Living">Christian Living</button>
+      <button class="filter-chip" data-cat="Leadership">Leadership</button>
+      <button class="filter-chip" data-cat="Family">Family</button>
+      <button class="filter-chip" data-cat="Healing">Healing</button>
+      </div>
     </div>
+
+    <div class="blog-count" id="blog-count"></div>
+
+    <div class="blog-grid" id="blog-grid">
+      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="the wind of the spirit faith &amp; salvation i chuckle every time i read john 3:8 in the king james version. jesus says to nicodemus, &quot;the wind bloweth where it listeth.&quot; do you have any idea what…">
+        <div class="blog-card__meta">Faith &amp; Salvation</div>
+        <h3>The Wind of the Spirit</h3>
+        <p>I chuckle every time I read John 3:8 in the King James Version. Jesus says to Nicodemus, "The wind bloweth where it listeth." Do you have any idea what…</p>
+        <a href="blog/the-wind-of-the-spirit.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Healing" data-search="god's timing and purposes healing (regarding healing)">
+        <div class="blog-card__meta">Healing</div>
+        <h3>God's Timing and Purposes</h3>
+        <p>(Regarding Healing)</p>
+        <a href="blog/gods-timing-and-purposes.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="god moves in seasons faith &amp; salvation what god does is always purpose-driven. he moves in seasons! and i'm not referring to spring, summer, fall or winter. god's seasons always coincide with…">
+        <div class="blog-card__meta">Faith &amp; Salvation</div>
+        <h3>God Moves in Seasons</h3>
+        <p>What God does is always purpose-driven. He moves in seasons! And I'm not referring to Spring, Summer, Fall or Winter. God's seasons always coincide with…</p>
+        <a href="blog/god-moves-in-seasons.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="why the altar? faith &amp; salvation in our circles we often talk about the altar. drawing from old testament typology, the altar was the place where animal sacrifices were slain. it was a…">
+        <div class="blog-card__meta">Faith &amp; Salvation</div>
+        <h3>Why the Altar?</h3>
+        <p>In our circles we often talk about the altar. Drawing from Old Testament typology, the altar was the place where animal sacrifices were slain. It was a…</p>
+        <a href="blog/why-the-altar.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Church Life" data-search="faulty thinking church life &quot;i don't have to go to church to be a christian.&quot; if i've heard this statement once, i've heard it a thousand times. usually, it comes from the mouths of…">
+        <div class="blog-card__meta">Church Life</div>
+        <h3>Faulty Thinking</h3>
+        <p>"I don't have to go to church to be a Christian." If I've heard this statement once, I've heard it a thousand times. Usually, it comes from the mouths of…</p>
+        <a href="blog/faulty-thinking.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Church Life" data-search="assignments church life we learn about assignments while in school. the teacher says, &quot;class, your assignment for tomorrow is to read pages 14-26 in your textbook. come to class…">
+        <div class="blog-card__meta">Church Life</div>
+        <h3>Assignments</h3>
+        <p>We learn about assignments while in school. The teacher says, "Class, your assignment for tomorrow is to read pages 14-26 in your textbook. Come to class…</p>
+        <a href="blog/assignments.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Church Life" data-search="change is inevitable church life scientists tell us that human cells regenerate at vastly different rates; while some suggest a full body reset every 7 years. in other words you and i get…">
+        <div class="blog-card__meta">Church Life</div>
+        <h3>Change is Inevitable</h3>
+        <p>Scientists tell us that human cells regenerate at vastly different rates; while some suggest a full body reset every 7 years. In other words you and I get…</p>
+        <a href="blog/change-is-inevitable.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Family" data-search="big picture thinking family i have a gift inside me, not sure if it's the spirit of discernment, or the ability to focus on what i call, &quot;the big picture.&quot; at any rate, i'm thankful…">
+        <div class="blog-card__meta">Family</div>
+        <h3>Big Picture Thinking</h3>
+        <p>I have a gift inside me, not sure if it's the spirit of discernment, or the ability to focus on what I call, "The Big Picture." At any rate, I'm thankful…</p>
+        <a href="blog/big-picture-thinking.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Leadership" data-search="wisely choose your battles leadership i was advised many years ago by a fellow pastor to not major in the minors when it came to church ministry, and to not use the pulpit to create…">
+        <div class="blog-card__meta">Leadership</div>
+        <h3>Wisely Choose Your Battles</h3>
+        <p>I was advised many years ago by a fellow pastor to not major in the minors when it came to church ministry, and to not use the pulpit to create…</p>
+        <a href="blog/wisely-choose-your-battles.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Leadership" data-search="kindness is not weakness leadership kindness is not weakness. and yet, in my experience, individuals who sometimes cross healthy boundaries in church life, find it incongruous when i have to…">
+        <div class="blog-card__meta">Leadership</div>
+        <h3>Kindness is Not Weakness</h3>
+        <p>Kindness is not weakness. And yet, in my experience, individuals who sometimes cross healthy boundaries in church life, find it incongruous when I have to…</p>
+        <a href="blog/kindness-is-not-weakness.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Christian Living" data-search="kindness goes a long way christian living i'm out and about quite a bit and run into all kinds of people, all makes and models! i'm sad to report that not all of my encounters are pleasant. some…">
+        <div class="blog-card__meta">Christian Living</div>
+        <h3>Kindness Goes a Long Way</h3>
+        <p>I'm out and about quite a bit and run into all kinds of people, all makes and models! I'm sad to report that not all of my encounters are pleasant. Some…</p>
+        <a href="blog/kindness-goes-a-long-way.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Church Life" data-search="arguing the scriptures church life every tuesday evening, unless otherwise announced, a group of our men gather in the cafe to engage in a verse-by-verse study of selected bible books.">
+        <div class="blog-card__meta">Church Life</div>
+        <h3>Arguing the Scriptures</h3>
+        <p>Every Tuesday evening, unless otherwise announced, a group of our men gather in the cafe to engage in a verse-by-verse study of selected Bible books.</p>
+        <a href="blog/arguing-the-scriptures.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Christian Living" data-search="caught up in the moment christian living recently, while mowing the church lawn, i got caught up in a spirit of praise and worship. heaven came down and kissed me while grass flew everywhere!">
+        <div class="blog-card__meta">Christian Living</div>
+        <h3>Caught Up in the Moment</h3>
+        <p>Recently, while mowing the church lawn, I got caught up in a spirit of praise and worship. Heaven came down and kissed me while grass flew everywhere!</p>
+        <a href="blog/caught-up-in-the-moment.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Christian Living" data-search="do you keep your word? christian living freelance writer nicole bradley-bernard said, &quot;people with good intentions make promises. but people with good character keep them.&quot; what is the big deal about a promise?">
+        <div class="blog-card__meta">Christian Living</div>
+        <h3>Do You Keep Your Word?</h3>
+        <p>Freelance writer Nicole Bradley-Bernard said, "People with good intentions make promises. But people with good character keep them." What is the big deal about a promise?</p>
+        <a href="blog/do-you-keep-your-word.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Church Life" data-search="questions while at church church life gathering with god's people over the years has been a wonderful highlight of my life. i love the praise and worship, the preached word, and the fellowship.">
+        <div class="blog-card__meta">Church Life</div>
+        <h3>Questions While at Church</h3>
+        <p>Gathering with God's people over the years has been a wonderful highlight of my life. I love the praise and worship, the preached Word, and the fellowship.</p>
+        <a href="blog/questions-while-at-church.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Leadership" data-search="the problem with disagreeing leadership thirty years ago, when i was pastoring an assemblies of god church in alabama, emotional eruptions in a sunday school class necessitated my attention.">
+        <div class="blog-card__meta">Leadership</div>
+        <h3>The Problem with Disagreeing</h3>
+        <p>Thirty years ago, when I was pastoring an Assemblies of God church in Alabama, emotional eruptions in a Sunday School class necessitated my attention.</p>
+        <a href="blog/the-problem-with-disagreeing.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Christian Living" data-search="what is a cult? christian living in today’s world we hear a lot of talk about cults. let me define the word &quot;cult.&quot; simply put, cults have three distinct characteristics.">
+        <div class="blog-card__meta">Christian Living</div>
+        <h3>What is a Cult?</h3>
+        <p>In today’s world we hear a lot of talk about cults. Let me define the word "cult." Simply put, cults have three distinct characteristics.</p>
+        <a href="blog/what-is-a-cult.html" class="btn btn-dark">Read Post</a>
+      </article>
+      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="why? faith &amp; salvation why? it's a question i'm ashamed to admit i've been asking a lot. more specifically, why am i on earth? i think everyone struggles with this question.">
+        <div class="blog-card__meta">Faith &amp; Salvation</div>
+        <h3>Why?</h3>
+        <p>Why? It's a question I'm ashamed to admit I've been asking a lot. More specifically, why am I on earth? I think everyone struggles with this question.</p>
+        <a href="blog/why.html" class="btn btn-dark">Read Post</a>
+      </article>
+    </div>
+    <p class="blog-empty" id="blog-empty">No posts match your search. Try a different keyword or topic.</p>
   </div>
 </section>
 
@@ -145,5 +243,46 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  (function () {
+    var input = document.getElementById('blog-search-input');
+    var grid = document.getElementById('blog-grid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.blog-card'));
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
+    var countEl = document.getElementById('blog-count');
+    var emptyEl = document.getElementById('blog-empty');
+    var total = cards.length;
+    var activeCat = 'all';
+
+    function apply() {
+      var q = (input.value || '').trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function (c) {
+        var okCat = activeCat === 'all' || c.getAttribute('data-cat') === activeCat;
+        var okSearch = !q || c.getAttribute('data-search').indexOf(q) !== -1;
+        var show = okCat && okSearch;
+        c.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      emptyEl.style.display = shown ? 'none' : 'block';
+      if (q || activeCat !== 'all') {
+        countEl.textContent = 'Showing ' + shown + ' of ' + total + ' posts';
+      } else {
+        countEl.textContent = total + ' posts';
+      }
+    }
+
+    input.addEventListener('input', apply);
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        activeCat = chip.getAttribute('data-cat');
+        apply();
+      });
+    });
+    apply();
+  })();
+</script>
 </body>
 </html>
