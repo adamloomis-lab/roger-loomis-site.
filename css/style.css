@@ -650,3 +650,16 @@ p:last-child { margin-bottom: 0; }
 .legal-wrap a { color: var(--gold); font-weight: 600; }
 .legal-wrap a:hover { text-decoration: underline; }
 @media (max-width: 600px) { .legal-wrap .legal-inner { padding: 36px 24px; } }
+
+/* ---- Home welcome banner ---- */
+.banner-section { background: var(--cream); padding: 64px 0; }
+.banner-section .home-banner {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 600px) { .banner-section { padding: 44px 0; } }
