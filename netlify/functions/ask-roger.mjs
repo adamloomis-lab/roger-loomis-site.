@@ -53,6 +53,23 @@ function retrieve(query, k = 7) {
   return scored;
 }
 
+/* Query expansion (HyDE): a short hypothetical answer + key terms to improve lexical recall. */
+async function expandQuery(question, apiKey) {
+  const r = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5',
+      max_tokens: 180,
+      system: 'You help a search engine. Given a visitor\'s question for a Christian pastor/author\'s book-and-blog search, output ONLY: (1) one or two sentences of a plausible answer in plain Christian-ministry language, then (2) a comma-separated list of 8-12 related keywords and synonyms (theological and everyday terms). No preamble, no labels.',
+      messages: [{ role: 'user', content: question }]
+    })
+  });
+  if (!r.ok) return '';
+  const d = await r.json();
+  return (d.content || []).filter(b => b.type === 'text').map(b => b.text).join(' ').trim();
+}
+
 /* ---------- simple best-effort rate limit (per warm instance) ---------- */
 const HITS = new Map();
 function rateLimited(ip) {
@@ -93,7 +110,10 @@ export default async function handler(req) {
     return json(503, { error: 'The assistant is warming up. Please try again in a moment.' });
   }
 
-  const hits = retrieve(question, 7);
+  // Smart retrieval: expand the question with a hypothetical answer + key terms (HyDE)
+  // so lexical search matches Roger's wording even when the visitor phrases things casually.
+  const expansion = await expandQuery(question, apiKey).catch(() => '');
+  const hits = retrieve(question + ' ' + question + ' ' + expansion, 8);
   if (!hits.length) {
     return json(200, { answer: "That doesn't seem to be something Roger touches on in his books or blog. Feel free to ask about faith, the local church, healing, parenting, or pastoral ministry.", sources: [] });
   }
