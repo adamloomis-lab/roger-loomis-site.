@@ -17,7 +17,7 @@
     + "#ar-head .ar-s{font-family:'Montserrat',system-ui,sans-serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#d4af6a;margin-top:3px;}"
     + '#ar-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.5rem;line-height:1;cursor:pointer;padding:0 4px;}'
     + '#ar-close:hover{color:#fff;}'
-    + "#ar-msgs{flex:1 1 auto;overflow-y:auto;padding:18px;font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:1.6;color:#2e2e2e;}"
+    + "#ar-msgs{flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch;overflow-y:auto;padding:18px;font-family:'Lora',Georgia,serif;font-size:.95rem;line-height:1.6;color:#2e2e2e;}"
     + '.ar-b{margin-bottom:14px;display:flex;}'
     + '.ar-b.u{justify-content:flex-end;}'
     + '.ar-b .bub{max-width:84%;padding:10px 14px;border-radius:14px;white-space:pre-wrap;}'
@@ -28,12 +28,17 @@
     + '.ar-dots span:nth-child(2){animation-delay:.2s;}.ar-dots span:nth-child(3){animation-delay:.4s;}'
     + '@keyframes arb{0%,60%,100%{opacity:.25;}30%{opacity:1;}}'
     + '#ar-form{flex:0 0 auto;display:flex;gap:8px;padding:12px;border-top:1px solid #e6e1d8;background:#fff;}'
-    + "#ar-in{flex:1;border:1px solid #ddd8d0;border-radius:9px;padding:11px 12px;font-family:'Lora',Georgia,serif;font-size:.95rem;resize:none;max-height:90px;}"
+    + "#ar-in{flex:1;min-width:0;border:1px solid #ddd8d0;border-radius:9px;padding:11px 12px;font-family:'Lora',Georgia,serif;font-size:16px;resize:none;max-height:90px;}"
     + '#ar-in:focus{outline:none;border-color:#b8963e;}'
-    + '#ar-send{background:#b8963e;color:#fff;border:none;border-radius:9px;padding:0 16px;cursor:pointer;font-weight:700;}'
+    + '#ar-send{flex:0 0 auto;background:#b8963e;color:#fff;border:none;border-radius:9px;padding:0 16px;cursor:pointer;font-weight:700;}'
     + '#ar-send:disabled{opacity:.5;cursor:default;}'
     + '.ar-disc{font-family:"Montserrat",system-ui,sans-serif;font-size:.6rem;color:#9a9384;text-align:center;padding:0 12px 9px;background:#fff;}'
-    + '@media(max-width:480px){#ar-panel{right:8px;bottom:8px;height:calc(100vh - 16px);}}';
+    + '@media(max-width:600px){'
+    + '#ar-fab{right:14px;bottom:14px;}'
+    + '#ar-panel{top:0;left:0;right:0;bottom:0;width:100%;max-width:100%;height:100dvh;max-height:100dvh;border-radius:0;}'
+    + '#ar-form{padding-bottom:calc(12px + env(safe-area-inset-bottom));}'
+    + '.ar-disc{padding-bottom:calc(9px + env(safe-area-inset-bottom));}'
+    + '}';
 
   function el(tag, attrs, html) {
     var e = document.createElement(tag);
@@ -53,7 +58,7 @@
       '<div id="ar-head"><div><div class="ar-t">Ask Roger</div><div class="ar-s">From his books &amp; blog</div></div>'
       + '<button id="ar-close" aria-label="Close">&times;</button></div>'
       + '<div id="ar-msgs"></div>'
-      + '<form id="ar-form"><textarea id="ar-in" rows="1" placeholder="Ask me about faith, church, healing, parenting..." aria-label="Your question"></textarea>'
+      + '<form id="ar-form"><textarea id="ar-in" rows="1" placeholder="Type your question…" aria-label="Your question"></textarea>'
       + '<button id="ar-send" type="submit">Send</button></form>'
       + '<div class="ar-disc">Roger answers from his own books and blog, offered as encouragement — not professional advice.</div>';
 
@@ -72,16 +77,32 @@
       b.appendChild(bub); msgs.appendChild(b); msgs.scrollTop = msgs.scrollHeight;
       return bub;
     }
+    var vv = window.visualViewport;
+    function isMobile() { return window.innerWidth <= 600; }
+    function clearFit() { panel.style.height = ''; panel.style.top = ''; panel.style.bottom = ''; }
+    // Resize/reposition the panel to the visible viewport so the keyboard never covers the input.
+    function fit() {
+      if (!panel.classList.contains('open') || !isMobile() || !vv) { clearFit(); return; }
+      panel.style.height = vv.height + 'px';
+      panel.style.top = vv.offsetTop + 'px';
+      panel.style.bottom = 'auto';
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+    if (vv) { vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit); }
+    window.addEventListener('orientationchange', function () { setTimeout(fit, 200); });
+
     function open() {
       panel.classList.add('open'); fab.style.display = 'none';
       if (!greeted) { greeted = true; addBubble('a', 'Hi, I’m Roger! Ask me about anything I’ve written on — faith, the local church, healing our broken places, parenting, or pastoral ministry. What’s on your heart, my friend?'); }
-      setTimeout(function(){ input.focus(); }, 50);
+      fit();
+      setTimeout(function () { input.focus(); fit(); }, 60);
     }
-    function close() { panel.classList.remove('open'); fab.style.display = 'inline-flex'; }
+    function close() { panel.classList.remove('open'); fab.style.display = 'inline-flex'; clearFit(); }
 
     fab.addEventListener('click', open);
     panel.querySelector('#ar-close').addEventListener('click', close);
     input.addEventListener('input', function(){ input.style.height='auto'; input.style.height=Math.min(input.scrollHeight,90)+'px'; });
+    input.addEventListener('focus', function(){ setTimeout(fit, 120); });
     input.addEventListener('keydown', function(e){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); form.requestSubmit(); } });
 
     form.addEventListener('submit', async function (e) {
