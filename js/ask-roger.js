@@ -101,6 +101,18 @@
 
     fab.addEventListener('click', open);
     panel.querySelector('#ar-close').addEventListener('click', close);
+
+    // Let any element on the page open the chat (and optionally pre-send a question):
+    //   <button data-ask-roger>Open</button>  or  <button data-ask-roger="How do I...?">
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-ask-roger]');
+      if (!t) return;
+      e.preventDefault();
+      open();
+      var q = (t.getAttribute('data-ask-roger') || '').trim();
+      if (q) { input.value = q; setTimeout(function () { form.requestSubmit(); }, 120); }
+    });
+    window.askRoger = function (q) { open(); if (q) { input.value = q; setTimeout(function () { form.requestSubmit(); }, 120); } };
     input.addEventListener('input', function(){ input.style.height='auto'; input.style.height=Math.min(input.scrollHeight,90)+'px'; });
     input.addEventListener('focus', function(){ setTimeout(fit, 120); });
     input.addEventListener('keydown', function(e){ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); form.requestSubmit(); } });
