@@ -2,6 +2,10 @@
   publish = "."
   command = ""
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/assets/media/*.mp4"
   [headers.values]
