@@ -53,9 +53,9 @@
       '<div id="ar-head"><div><div class="ar-t">Ask Roger</div><div class="ar-s">From his books &amp; blog</div></div>'
       + '<button id="ar-close" aria-label="Close">&times;</button></div>'
       + '<div id="ar-msgs"></div>'
-      + '<form id="ar-form"><textarea id="ar-in" rows="1" placeholder="Ask about faith, church, healing, parenting..." aria-label="Your question"></textarea>'
+      + '<form id="ar-form"><textarea id="ar-in" rows="1" placeholder="Ask me about faith, church, healing, parenting..." aria-label="Your question"></textarea>'
       + '<button id="ar-send" type="submit">Send</button></form>'
-      + '<div class="ar-disc">Answers come only from Roger’s books and blog. For encouragement, not professional advice.</div>';
+      + '<div class="ar-disc">Roger answers from his own books and blog, offered as encouragement — not professional advice.</div>';
 
     document.body.appendChild(fab);
     document.body.appendChild(panel);
@@ -74,7 +74,7 @@
     }
     function open() {
       panel.classList.add('open'); fab.style.display = 'none';
-      if (!greeted) { greeted = true; addBubble('a', 'Hi! I’m here to answer questions from Roger’s books and blog — things like faith, the local church, healing our broken places, parenting, and pastoral ministry. What’s on your mind?'); }
+      if (!greeted) { greeted = true; addBubble('a', 'Hi, I’m Roger! Ask me about anything I’ve written on — faith, the local church, healing our broken places, parenting, or pastoral ministry. What’s on your heart, my friend?'); }
       setTimeout(function(){ input.focus(); }, 50);
     }
     function close() { panel.classList.remove('open'); fab.style.display = 'inline-flex'; }
