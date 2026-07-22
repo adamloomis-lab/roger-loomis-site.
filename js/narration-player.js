@@ -24,7 +24,8 @@ import { narration } from './narration.js';
   var sections = page.sections;
 
   var css = [
-    '#np-root{position:fixed;right:20px;bottom:96px;z-index:94;font-family:Montserrat,system-ui,sans-serif;display:flex;flex-direction:column;align-items:flex-end}',
+    // Top right, clear of the chat launcher and its nudge in the bottom corner.
+    '#np-root{position:fixed;right:20px;top:104px;z-index:94;font-family:Montserrat,system-ui,sans-serif;display:flex;flex-direction:column;align-items:flex-end}',
     '#np-pill{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:11px 17px;border:1px solid #ddd8d0;border-radius:999px;background:rgba(255,255,255,.96);color:#1a1a1a;font:600 13.5px/1 Montserrat,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 34px -14px rgba(26,26,26,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .18s ease,border-color .18s ease}',
     '#np-pill:hover{transform:translateY(-2px);border-color:#b8963e}',
     '#np-pill svg{width:17px;height:17px;color:#b8963e}',
@@ -53,7 +54,7 @@ import { narration } from './narration.js';
     '.np-ticks span.now{background:#1a1a1a}',
     '.narrate-active{outline:3px solid rgba(184,150,62,.6);outline-offset:-3px;transition:outline-color .4s ease}',
     '@media(forced-colors:active){.narrate-active{outline-color:Highlight}}',
-    '@media(max-width:1023px){#np-root{bottom:calc(146px + env(safe-area-inset-bottom));right:14px}}',
+    '@media(max-width:1023px){#np-root{top:88px;right:14px}}',
     '@media(max-width:600px){#np-root{left:14px;right:14px;align-items:stretch}#np-panel{width:auto}#np-pill{justify-content:center}}',
     '@media(prefers-reduced-motion:reduce){#np-root.open #np-panel,#np-pill,#np-toggle{animation:none;transition:none}}'
   ].join('');
