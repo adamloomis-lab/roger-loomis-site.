@@ -1,31 +1,39 @@
-/* "Listen to this page": an audio tour of the current page in Roger's voice.
+/* "Listen to this page": an audio tour of the page in Roger's voice.
 
-   Audio is pre-generated per section (scripts/narrate.mjs) and served as static
-   files, so listeners cost nothing. Any missing file falls back to the
-   browser's own voice, so the player works even before audio exists.
+   The script is read off the page itself, so it speaks every word a sighted
+   visitor sees, and new copy is narrated the moment it ships. Each part's audio
+   file is named after a hash of its own spoken words, so edited copy simply has
+   no file yet: the 404 falls through to the browser's voice reading the CURRENT
+   words. Stale audio can never play.
 
-   While a section plays, its [data-narrate] block scrolls into view and gently
-   highlights. User initiated only (WCAG 1.4.2), reduced motion aware, and it
-   stops cleanly on close or when leaving the page.
+   While a part plays, its section scrolls into view and gently highlights.
+   User initiated only (WCAG 1.4.2), reduced motion aware, stops on close.
 */
-import { narration } from './narration.js';
+import { collectFromDocument, pageSlug } from '/shared/narration.mjs';
+import { expandForSpeech } from '/shared/speech.mjs';
 
-(function () {
+(async function () {
   'use strict';
 
-  // Pretty URLs and .html URLs both resolve to the same narration key.
-  var path = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
-  if (path.length > 1 && path.slice(-1) === '/') path = path.slice(0, -1);
-  if (path === '') path = '/';
-  var page = narration[path];
-  if (!page || !page.sections.length) return;
+  var sections = collectFromDocument(document);
+  if (!sections.length) return;
+  var slug = pageSlug(window.location.pathname);
+  var pageTitle = (document.querySelector('h1') || {}).textContent || document.title;
+  pageTitle = pageTitle.trim().slice(0, 40);
 
-  var slug = path === '/' ? 'home' : path.replace(/^\//, '').replace(/\//g, '-');
-  var sections = page.sections;
+  // Same hash the generator uses: sha1 of the EXPANDED text, first 16 hex.
+  async function hashOf(text) {
+    var data = new TextEncoder().encode(expandForSpeech(text));
+    var buf = await crypto.subtle.digest('SHA-1', data);
+    return Array.from(new Uint8Array(buf)).map(function (b) {
+      return b.toString(16).padStart(2, '0');
+    }).join('').slice(0, 16);
+  }
 
   var css = [
     // Top right, clear of the chat launcher and its nudge in the bottom corner.
-    '#np-root{position:fixed;right:20px;top:104px;z-index:94;font-family:Montserrat,system-ui,sans-serif;display:flex;flex-direction:column;align-items:flex-end}',
+    '#np-root{position:fixed;right:20px;top:6.5rem;z-index:94;font-family:Montserrat,system-ui,sans-serif;display:flex;flex-direction:column;align-items:flex-end}',
+    'body[data-chat-open] #np-root{display:none}',
     '#np-pill{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:11px 17px;border:1px solid #ddd8d0;border-radius:999px;background:rgba(255,255,255,.96);color:#1a1a1a;font:600 13.5px/1 Montserrat,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 34px -14px rgba(26,26,26,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .18s ease,border-color .18s ease}',
     '#np-pill:hover{transform:translateY(-2px);border-color:#b8963e}',
     '#np-pill svg{width:17px;height:17px;color:#b8963e}',
@@ -48,13 +56,11 @@ import { narration } from './narration.js';
     '#np-toggle:hover{transform:scale(1.05)}',
     '.np-ctrls svg{width:19px;height:19px}',
     '#np-toggle svg{width:23px;height:23px}',
-    '.np-ticks{display:flex;gap:6px;margin-top:14px}',
-    '.np-ticks span{flex:1;height:4px;border-radius:999px;background:#e4dfd6;transition:background-color .3s ease}',
-    '.np-ticks span.done{background:#d4af6a}',
-    '.np-ticks span.now{background:#1a1a1a}',
+    '.np-bar{margin-top:14px;height:4px;border-radius:999px;background:#e4dfd6;overflow:hidden}',
+    '.np-bar i{display:block;height:100%;background:#b8963e;transition:width .3s ease}',
     '.narrate-active{outline:3px solid rgba(184,150,62,.6);outline-offset:-3px;transition:outline-color .4s ease}',
     '@media(forced-colors:active){.narrate-active{outline-color:Highlight}}',
-    '@media(max-width:1023px){#np-root{top:88px;right:14px}}',
+    '@media(max-width:1023px){#np-root{top:5.5rem;right:14px}}',
     '@media(max-width:600px){#np-root{left:14px;right:14px;align-items:stretch}#np-panel{width:auto}#np-pill{justify-content:center}}',
     '@media(prefers-reduced-motion:reduce){#np-root.open #np-panel,#np-pill,#np-toggle{animation:none;transition:none}}'
   ].join('');
@@ -78,31 +84,29 @@ import { narration } from './narration.js';
     '<section id="np-panel" aria-label="Page narration player">' +
       '<div class="np-top">' +
         '<div>' +
-          '<p class="np-kicker">' + page.title + '</p>' +
+          '<p class="np-kicker"></p>' +
           '<p class="np-title" id="np-sect"></p>' +
           '<p class="np-count" id="np-count" aria-live="polite"></p>' +
         '</div>' +
         '<button id="np-close" type="button" aria-label="Close the narration player">&times;</button>' +
       '</div>' +
       '<div class="np-ctrls">' +
-        '<button class="np-step" id="np-prev" type="button" aria-label="Previous section">' + I.back + '</button>' +
+        '<button class="np-step" id="np-prev" type="button" aria-label="Previous part">' + I.back + '</button>' +
         '<button id="np-toggle" type="button" aria-label="Pause narration">' + I.pause + '</button>' +
-        '<button class="np-step" id="np-next" type="button" aria-label="Next section">' + I.fwd + '</button>' +
+        '<button class="np-step" id="np-next" type="button" aria-label="Next part">' + I.fwd + '</button>' +
       '</div>' +
-      '<div class="np-ticks" id="np-ticks" aria-hidden="true">' +
-        sections.map(function () { return '<span></span>'; }).join('') +
-      '</div>' +
+      '<div class="np-bar" aria-hidden="true"><i></i></div>' +
     '</section>';
   document.body.appendChild(root);
+  root.querySelector('.np-kicker').textContent = pageTitle;
 
   var pill = root.querySelector('#np-pill');
-  var panel = root.querySelector('#np-panel');
   var sectEl = root.querySelector('#np-sect');
   var countEl = root.querySelector('#np-count');
   var prevBtn = root.querySelector('#np-prev');
   var nextBtn = root.querySelector('#np-next');
   var toggleBtn = root.querySelector('#np-toggle');
-  var ticks = root.querySelectorAll('#np-ticks span');
+  var bar = root.querySelector('.np-bar i');
 
   var idx = 0;
   var playing = false;
@@ -129,10 +133,9 @@ import { narration } from './narration.js';
     for (var i = 0; i < els.length; i++) els[i].classList.remove('narrate-active');
   }
 
-  function highlight(anchor) {
+  function highlight(section) {
     clearHighlight();
-    if (!anchor) return;
-    var el = document.querySelector('[data-narrate="' + anchor + '"]') || document.getElementById(anchor);
+    var el = section.el || (section.anchor && document.querySelector('[data-narrate="' + section.anchor + '"]'));
     if (!el) return;
     el.classList.add('narrate-active');
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -146,9 +149,7 @@ import { narration } from './narration.js';
     nextBtn.disabled = idx >= sections.length - 1;
     toggleBtn.innerHTML = playing ? I.pause : I.play;
     toggleBtn.setAttribute('aria-label', playing ? 'Pause narration' : 'Play narration');
-    for (var i = 0; i < ticks.length; i++) {
-      ticks[i].className = i < idx ? 'done' : i === idx ? 'now' : '';
-    }
+    bar.style.width = Math.round(((idx + (playing ? 1 : 0)) / sections.length) * 100) + '%';
   }
 
   function stop() {
@@ -170,7 +171,7 @@ import { narration } from './narration.js';
     speech.speak(u);
   }
 
-  function play(i) {
+  async function play(i) {
     stop();
     var section = sections[i];
     if (!section) { idx = 0; paint(); return; }
@@ -178,7 +179,7 @@ import { narration } from './narration.js';
     idx = i;
     playing = true;
     paint();
-    highlight(section.anchor);
+    highlight(section);
 
     var advance = function () {
       if (run !== token) return;
@@ -189,14 +190,17 @@ import { narration } from './narration.js';
     if (!audio) audio = new Audio();
     var fellBack = false;
     var fallback = function () {
-      // No pre-generated file yet: read this section with the browser voice.
+      // No pre-generated file for these exact words: read them live instead.
       if (fellBack || run !== token) return;
       fellBack = true;
       speakFallback(section.text, token, advance);
     };
     audio.onended = function () { if (run === token) advance(); };
     audio.onerror = fallback;
-    audio.src = '/audio/narration/' + slug + '/' + section.id + '.mp3';
+    var h = await hashOf(section.text).catch(function () { return null; });
+    if (run !== token) return;
+    if (!h) { fallback(); return; }
+    audio.src = '/audio/narration/' + slug + '/' + h + '.mp3';
     var p = audio.play();
     if (p && p.catch) p.catch(fallback);
   }
