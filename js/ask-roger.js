@@ -45,7 +45,9 @@
     '#ar-head{display:flex;align-items:center;gap:13px;padding:16px 18px;background:#1a1a1a;color:#faf8f4}',
     '#ar-head .ar-av{flex:none;width:42px;height:42px;border-radius:50%;overflow:hidden;background:rgba(250,248,244,.1);display:grid;place-items:center}',
     '#ar-head .ar-av img{width:100%;height:100%;object-fit:cover}',
-    '#ar-head h2{margin:0;font:600 19px/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.01em}',
+    // Colour and alignment are set explicitly: the site's global h2 rule would
+    // otherwise paint this dark-on-dark and centre it.
+    '#ar-head h2{margin:0;font:600 19px/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.01em;color:#faf8f4;text-align:left;text-transform:none}',
     '#ar-head p{margin:2px 0 0;font:400 12px/1.3 Montserrat,system-ui,sans-serif;color:rgba(250,248,244,.62)}',
     '#ar-head .ar-x{margin-left:auto;width:40px;height:40px;flex:none;border:0;background:none;color:rgba(250,248,244,.75);font-size:20px;border-radius:50%;cursor:pointer}',
     '#ar-head .ar-x:hover{background:rgba(250,248,244,.12);color:#fff}',
