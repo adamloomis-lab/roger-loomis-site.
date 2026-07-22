@@ -408,6 +408,8 @@
     if (!msgsEl.children.length) opener();
     panel.classList.add('open');
     launch.setAttribute('aria-expanded', 'true');
+    // Tells the narration pill to step aside: they share the same corner.
+    document.body.dataset.chatOpen = '1';
     fit();
     scrollDown();
     if (focus !== false && !isMobile()) input.focus();
@@ -415,6 +417,7 @@
   function close() {
     panel.classList.remove('open');
     launch.setAttribute('aria-expanded', 'false');
+    delete document.body.dataset.chatOpen;
     clearFit();
     stopSpeaking();
     if (rec) rec.abort ? rec.abort() : rec.stop();
