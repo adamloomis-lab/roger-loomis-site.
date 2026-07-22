@@ -177,7 +177,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" aria-label="Hero">
+<section data-narrate="hero" class="hero" aria-label="Hero">
   <div class="hero-bg">
     <video class="hero-video" autoplay muted loop playsinline poster="assets/rogerhero.webp" aria-hidden="true">
       <source src="assets/media/download.mp4" type="video/mp4" />
@@ -196,7 +196,7 @@
 </section>
 
 <!-- ASK ROGER FEATURE -->
-<section class="ask-feature" aria-label="Ask Roger assistant">
+<section data-narrate="ask-roger" class="ask-feature" aria-label="Ask Roger assistant">
   <div class="container">
     <div class="ask-feature__card reveal">
       <div class="ask-feature__icon" aria-hidden="true">
@@ -240,7 +240,7 @@
 </div>
 
 <!-- FEATURED BOOK: HEALING OUR BROKEN PLACES -->
-<section class="featured-section" aria-label="Featured Book">
+<section data-narrate="featured-book" class="featured-section" aria-label="Featured Book">
   <div class="container">
     <div class="featured-book reveal">
       <div class="featured-book__cover">
@@ -260,7 +260,7 @@
 </section>
 
 <!-- BOOKS PREVIEW -->
-<section class="books-preview" aria-label="Books">
+<section data-narrate="books" class="books-preview" aria-label="Books">
   <div class="container">
     <span class="label" style="display:block;text-align:center;">From Roger's Library</span>
     <h2>Books for Ministry and Life</h2>
@@ -330,7 +330,7 @@
 </div>
 
 <!-- ABOUT PREVIEW -->
-<section class="section section--white" aria-label="About Roger">
+<section data-narrate="about" class="section section--white" aria-label="About Roger">
   <div class="container">
     <div class="about-grid">
       <div class="reveal">
@@ -357,7 +357,7 @@
 </section>
 
 <!-- FREE NEWSLETTER -->
-<section class="newsletter-section reveal" aria-label="Free Newsletter Signup">
+<section data-narrate="newsletter" class="newsletter-section reveal" aria-label="Free Newsletter Signup">
   <div class="container">
     <div class="newsletter-card">
       <div class="newsletter-copy">
@@ -437,5 +437,6 @@
 @media(min-width:1024px){#mobile-action-bar{display:none}}
 @media(max-width:1023px){body{padding-bottom:66px}}
 </style>
+<script type="module" src="/js/narration-player.js"></script>
 </body>
 </html>

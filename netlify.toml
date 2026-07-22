@@ -7,12 +7,22 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/api/ask-roger"
+  to = "/.netlify/functions/ask-roger"
+  status = 200
+
+[[redirects]]
   from = "/api/tts"
   to = "/.netlify/functions/tts"
   status = 200
 
 [[headers]]
   for = "/assets/media/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/audio/narration/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 

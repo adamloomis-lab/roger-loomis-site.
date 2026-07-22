@@ -170,7 +170,7 @@
 </nav>
 
 <!-- PAGE HERO -->
-<div class="page-hero">
+<div data-narrate="hero" class="page-hero">
   <div class="container">
     <img class="hero-logo" src="assets/logo.webp" alt="Roger Loomis" />
     <span class="label">Meet Roger</span>
@@ -181,7 +181,7 @@
 </div>
 
 <!-- ABOUT DETAIL -->
-<section class="about-detail">
+<section data-narrate="story" class="about-detail">
   <div class="container">
     <div class="about-detail__grid">
       <div class="about-detail__img reveal">
@@ -206,7 +206,7 @@
 </section>
 
 <!-- CREDENTIALS -->
-<section class="credentials">
+<section data-narrate="credentials" class="credentials">
   <div class="container">
     <span class="label" style="color:var(--gold-lt);text-align:center;display:block;">Background and Ministry</span>
     <h2>Credentials and Ministry Highlights</h2>
@@ -247,7 +247,7 @@
 </section>
 
 <!-- MINISTRY TIMELINE -->
-<section class="ministry-timeline">
+<section data-narrate="timeline" class="ministry-timeline">
   <div class="container">
     <span class="label" style="text-align:center;display:block;">Five Decades of Ministry</span>
     <h2>A Life of Faithful Service</h2>
@@ -346,5 +346,6 @@
 @media(min-width:1024px){#mobile-action-bar{display:none}}
 @media(max-width:1023px){body{padding-bottom:66px}}
 </style>
+<script type="module" src="/js/narration-player.js"></script>
 </body>
 </html>
