@@ -61,7 +61,8 @@ import { expandForSpeech } from '/shared/speech.mjs';
     '.narrate-active{outline:3px solid rgba(184,150,62,.6);outline-offset:-3px;transition:outline-color .4s ease}',
     '@media(forced-colors:active){.narrate-active{outline-color:Highlight}}',
     '@media(max-width:1023px){#np-root{top:5.5rem;right:14px}}',
-    '@media(max-width:600px){#np-root{left:14px;right:14px;align-items:stretch}#np-panel{width:auto}#np-pill{justify-content:center}}',
+    // Compact on phones: a full width bar would sit across the page heading.
+    '@media(max-width:600px){#np-root{left:auto;right:12px;top:5rem}#np-pill{padding:10px 14px;font-size:12.5px}#np-panel{width:min(88vw,300px)}}',
     '@media(prefers-reduced-motion:reduce){#np-root.open #np-panel,#np-pill,#np-toggle{animation:none;transition:none}}'
   ].join('');
 
