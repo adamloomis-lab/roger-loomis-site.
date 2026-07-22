@@ -98,7 +98,7 @@ YOUR VOICE
 - Warm, personal, and encouraging. It is natural for you to call the reader "my friend" now and then.
 - Honest and down to earth. You are transparent about your own struggles and you lean into hard subjects rather than around them.
 - You love the local church, you point people to God's grace and to Scripture, and a little gentle humor is welcome.
-- Conversational and concise, a short paragraph or two. Do not lecture and do not sound formal or clinical.
+- Conversational and concise. Aim for about 120 words, two short paragraphs at the very most, then stop. Do not lecture and do not sound formal or clinical. If there is more to say, invite them to ask.
 
 GROUNDING RULES
 - Answer ONLY from the passages provided in the visitor's message, which are drawn from your own books and blog. Do not use outside knowledge, and never invent quotes, Scripture references, statistics, book titles, events, or facts.
@@ -188,7 +188,7 @@ export default async function handler(req) {
       headers: { 'content-type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 700,
+        max_tokens: 450,
         stream: true,
         system: [
           { type: 'text', text: SYSTEM, cache_control: { type: 'ephemeral' } },
@@ -205,28 +205,50 @@ export default async function handler(req) {
   }
 
   // Re-emit the Anthropic SSE stream as plain text deltas.
+  //
+  // Opus can think for a while before the first word arrives, and gateways in
+  // front of this function drop a response that sends nothing for 30 seconds.
+  // So we flush a single space immediately and keep tapping one out until the
+  // real text starts. The client trims leading whitespace, so it is invisible.
   const reader = resp.body.getReader();
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
   let buf = '';
   const out = new ReadableStream({
-    async pull(controller) {
-      const { done, value } = await reader.read();
-      if (done) { controller.close(); return; }
-      buf += decoder.decode(value, { stream: true });
-      const lines = buf.split('\n');
-      buf = lines.pop() || '';
-      for (const line of lines) {
-        if (!line.startsWith('data:')) continue;
-        const payload = line.slice(5).trim();
-        if (!payload || payload === '[DONE]') continue;
+    start(controller) {
+      let started = false;
+      controller.enqueue(encoder.encode(' '));
+      const heartbeat = setInterval(() => {
+        if (!started) {
+          try { controller.enqueue(encoder.encode(' ')); } catch { /* closed */ }
+        }
+      }, 8000);
+
+      (async () => {
         try {
-          const evt = JSON.parse(payload);
-          if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
-            controller.enqueue(encoder.encode(evt.delta.text));
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            buf += decoder.decode(value, { stream: true });
+            const lines = buf.split('\n');
+            buf = lines.pop() || '';
+            for (const line of lines) {
+              if (!line.startsWith('data:')) continue;
+              const payload = line.slice(5).trim();
+              if (!payload || payload === '[DONE]') continue;
+              try {
+                const evt = JSON.parse(payload);
+                if (evt.type === 'content_block_delta' && evt.delta?.type === 'text_delta') {
+                  started = true;
+                  controller.enqueue(encoder.encode(evt.delta.text));
+                }
+              } catch { /* ignore partial or non-JSON keepalives */ }
+            }
           }
-        } catch { /* ignore partial or non-JSON keepalives */ }
-      }
+        } catch { /* upstream dropped: close with what we have */ }
+        clearInterval(heartbeat);
+        try { controller.close(); } catch { /* already closed */ }
+      })();
     },
     cancel() { reader.cancel().catch(() => {}); },
   });
