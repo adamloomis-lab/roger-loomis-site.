@@ -678,3 +678,7 @@ p:last-child { margin-bottom: 0; }
 .preview-cta h3 { font-size: 1.7rem; margin-bottom: 0.6rem; }
 .preview-cta p { color: var(--mid); max-width: 520px; margin: 0 auto 1.5rem; }
 @media (max-width: 600px) { .preview-cta { padding: 30px 22px; } }
+
+/* Blog post dates (written by scripts/stamp-posts.mjs) */
+.post-meta__sep, .blog-card__sep { opacity: 0.45; margin: 0 2px; }
+.post-meta time, .blog-card__meta time { color: var(--mid); }

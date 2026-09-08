@@ -22,6 +22,12 @@
     .filter-chip { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.14); background: var(--white); color: var(--mid); cursor: pointer; transition: all 0.2s ease; }
     .filter-chip:hover { border-color: var(--gold); color: var(--dark); }
     .filter-chip.active { background: var(--dark); border-color: var(--dark); color: var(--white); }
+    .blog-sort { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 18px; font-family: var(--font-sans); }
+    .blog-sort label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+    .blog-sort select { font-family: var(--font-sans); font-size: 0.9rem; padding: 9px 36px 9px 14px; border: 1px solid rgba(0,0,0,0.14); border-radius: 8px; background: var(--white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'><path d='m6 9 6 6 6-6'/></svg>") no-repeat right 12px center / 14px; color: var(--text); appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .blog-sort select:focus { outline: none; border-color: var(--gold); }
+    .blog-card__sep, .post-meta__sep { opacity: 0.45; margin: 0 2px; }
+    .blog-card__meta time { color: var(--mid); }
     .blog-count { text-align: center; font-family: var(--font-sans); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); margin-bottom: 30px; }
     .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
     .blog-card { background: var(--white); border-radius: 8px; padding: 34px 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; min-height: 330px; }
@@ -170,151 +176,159 @@
       <button class="filter-chip" data-cat="Family">Family</button>
       <button class="filter-chip" data-cat="Healing">Healing</button>
       </div>
+      <div class="blog-sort">
+        <label for="blog-sort-select">Sort</label>
+        <select id="blog-sort-select" aria-label="Sort posts">
+          <option value="newest" selected>Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="title">Title A to Z</option>
+        </select>
+      </div>
     </div>
 
     <div class="blog-count" id="blog-count"></div>
 
     <div class="blog-grid" id="blog-grid">
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="twenty-three dollars $23.00 faith &amp; salvation the other day my total at the grocery store came to exactly $23.00. suddenly, i imploded emotionally in front of the cashier, who asked me, &quot;are you…">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Faith &amp; Salvation" data-search="twenty-three dollars $23.00 faith &amp; salvation the other day my total at the grocery store came to exactly $23.00. suddenly, i imploded emotionally in front of the cashier, who asked me, &quot;are you…">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>$23.00</h3>
         <p>The other day my total at the grocery store came to exactly $23.00. Suddenly, I imploded emotionally in front of the cashier, who asked me, &quot;Are you…</p>
         <a href="blog/twenty-three-dollars.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="cigars and whiskey christian living actor kirk cameron, who played the rebellious, loveable teenage mike seaver on &quot;growing pains&quot; fame, recently revealed that a popular trend among christian…">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Christian Living" data-search="cigars and whiskey christian living actor kirk cameron, who played the rebellious, loveable teenage mike seaver on &quot;growing pains&quot; fame, recently revealed that a popular trend among christian…">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>Cigars and Whiskey</h3>
         <p>Actor Kirk Cameron, who played the rebellious, loveable teenage Mike Seaver on &quot;Growing Pains&quot; fame, recently revealed that a popular trend among Christian…</p>
         <a href="blog/cigars-and-whiskey.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="enemies of the faith christian living today, i wish to discuss eight enemies of the christian faith. more specifically, they are enemies of an individual christian&#x27;s faith. they do not come…">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Christian Living" data-search="enemies of the faith christian living today, i wish to discuss eight enemies of the christian faith. more specifically, they are enemies of an individual christian&#x27;s faith. they do not come…">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>Enemies of the Faith</h3>
         <p>Today, I wish to discuss eight enemies of the Christian faith. More specifically, they are enemies of an individual Christian&#x27;s faith. They do not come…</p>
         <a href="blog/enemies-of-the-faith.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="give something! christian living tithe. like you, i was taught that god curses those who don&#x27;t. if i had a dollar for every time i heard this preached, i&#x27;d probably be rich! the common text…">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Christian Living" data-search="give something! christian living tithe. like you, i was taught that god curses those who don&#x27;t. if i had a dollar for every time i heard this preached, i&#x27;d probably be rich! the common text…">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>Give Something!</h3>
         <p>Tithe. Like you, I was taught that God curses those who don&#x27;t. If I had a dollar for every time I heard this preached, I&#x27;d probably be rich! The common text…</p>
         <a href="blog/give-something.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="life change faith &amp; salvation i was saved 56 years ago, and one of the hallmarks of my born again experience was the life change that followed. not that i was perfect, nor did not at…">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Faith &amp; Salvation" data-search="life change faith &amp; salvation i was saved 56 years ago, and one of the hallmarks of my born again experience was the life change that followed. not that i was perfect, nor did not at…">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>Life Change</h3>
         <p>I was saved 56 years ago, and one of the hallmarks of my born again experience was the life change that followed. Not that I was perfect, nor did not at…</p>
         <a href="blog/life-change.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="this concerns me church life what i&#x27;m about to share may perhaps sound maudlin to some but i think it needs to be said. strangely enough, i read obituaries. it&#x27;s probably due in part to…">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-07-28" data-cat="Church Life" data-search="this concerns me church life what i&#x27;m about to share may perhaps sound maudlin to some but i think it needs to be said. strangely enough, i read obituaries. it&#x27;s probably due in part to…">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-07-28">July 28, 2026</time></div>
         <h3>This Concerns Me</h3>
         <p>What I&#x27;m about to share may perhaps sound maudlin to some but I think it needs to be said. Strangely enough, I read obituaries. It&#x27;s probably due in part to…</p>
         <a href="blog/this-concerns-me.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="the wind of the spirit faith &amp; salvation i chuckle every time i read john 3:8 in the king james version. jesus says to nicodemus, &quot;the wind bloweth where it listeth.&quot; do you have any idea what…">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Faith &amp; Salvation" data-search="the wind of the spirit faith &amp; salvation i chuckle every time i read john 3:8 in the king james version. jesus says to nicodemus, &quot;the wind bloweth where it listeth.&quot; do you have any idea what…">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>The Wind of the Spirit</h3>
         <p>I chuckle every time I read John 3:8 in the King James Version. Jesus says to Nicodemus, "The wind bloweth where it listeth." Do you have any idea what…</p>
         <a href="blog/the-wind-of-the-spirit.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Healing" data-search="god's timing and purposes healing (regarding healing)">
-        <div class="blog-card__meta">Healing</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Healing" data-search="god's timing and purposes healing (regarding healing)">
+        <div class="blog-card__meta">Healing <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>God's Timing and Purposes</h3>
         <p>(Regarding Healing)</p>
         <a href="blog/gods-timing-and-purposes.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="god moves in seasons faith &amp; salvation what god does is always purpose-driven. he moves in seasons! and i'm not referring to spring, summer, fall or winter. god's seasons always coincide with…">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Faith &amp; Salvation" data-search="god moves in seasons faith &amp; salvation what god does is always purpose-driven. he moves in seasons! and i'm not referring to spring, summer, fall or winter. god's seasons always coincide with…">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>God Moves in Seasons</h3>
         <p>What God does is always purpose-driven. He moves in seasons! And I'm not referring to Spring, Summer, Fall or Winter. God's seasons always coincide with…</p>
         <a href="blog/god-moves-in-seasons.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="why the altar? faith &amp; salvation in our circles we often talk about the altar. drawing from old testament typology, the altar was the place where animal sacrifices were slain. it was a…">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Faith &amp; Salvation" data-search="why the altar? faith &amp; salvation in our circles we often talk about the altar. drawing from old testament typology, the altar was the place where animal sacrifices were slain. it was a…">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Why the Altar?</h3>
         <p>In our circles we often talk about the altar. Drawing from Old Testament typology, the altar was the place where animal sacrifices were slain. It was a…</p>
         <a href="blog/why-the-altar.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="faulty thinking church life &quot;i don't have to go to church to be a christian.&quot; if i've heard this statement once, i've heard it a thousand times. usually, it comes from the mouths of…">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Church Life" data-search="faulty thinking church life &quot;i don't have to go to church to be a christian.&quot; if i've heard this statement once, i've heard it a thousand times. usually, it comes from the mouths of…">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Faulty Thinking</h3>
         <p>"I don't have to go to church to be a Christian." If I've heard this statement once, I've heard it a thousand times. Usually, it comes from the mouths of…</p>
         <a href="blog/faulty-thinking.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="assignments church life we learn about assignments while in school. the teacher says, &quot;class, your assignment for tomorrow is to read pages 14-26 in your textbook. come to class…">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Church Life" data-search="assignments church life we learn about assignments while in school. the teacher says, &quot;class, your assignment for tomorrow is to read pages 14-26 in your textbook. come to class…">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Assignments</h3>
         <p>We learn about assignments while in school. The teacher says, "Class, your assignment for tomorrow is to read pages 14-26 in your textbook. Come to class…</p>
         <a href="blog/assignments.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="change is inevitable church life scientists tell us that human cells regenerate at vastly different rates; while some suggest a full body reset every 7 years. in other words you and i get…">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Church Life" data-search="change is inevitable church life scientists tell us that human cells regenerate at vastly different rates; while some suggest a full body reset every 7 years. in other words you and i get…">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Change is Inevitable</h3>
         <p>Scientists tell us that human cells regenerate at vastly different rates; while some suggest a full body reset every 7 years. In other words you and I get…</p>
         <a href="blog/change-is-inevitable.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Family" data-search="big picture thinking family i have a gift inside me, not sure if it's the spirit of discernment, or the ability to focus on what i call, &quot;the big picture.&quot; at any rate, i'm thankful…">
-        <div class="blog-card__meta">Family</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Family" data-search="big picture thinking family i have a gift inside me, not sure if it's the spirit of discernment, or the ability to focus on what i call, &quot;the big picture.&quot; at any rate, i'm thankful…">
+        <div class="blog-card__meta">Family <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Big Picture Thinking</h3>
         <p>I have a gift inside me, not sure if it's the spirit of discernment, or the ability to focus on what I call, "The Big Picture." At any rate, I'm thankful…</p>
         <a href="blog/big-picture-thinking.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Leadership" data-search="wisely choose your battles leadership i was advised many years ago by a fellow pastor to not major in the minors when it came to church ministry, and to not use the pulpit to create…">
-        <div class="blog-card__meta">Leadership</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Leadership" data-search="wisely choose your battles leadership i was advised many years ago by a fellow pastor to not major in the minors when it came to church ministry, and to not use the pulpit to create…">
+        <div class="blog-card__meta">Leadership <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Wisely Choose Your Battles</h3>
         <p>I was advised many years ago by a fellow pastor to not major in the minors when it came to church ministry, and to not use the pulpit to create…</p>
         <a href="blog/wisely-choose-your-battles.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Leadership" data-search="kindness is not weakness leadership kindness is not weakness. and yet, in my experience, individuals who sometimes cross healthy boundaries in church life, find it incongruous when i have to…">
-        <div class="blog-card__meta">Leadership</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Leadership" data-search="kindness is not weakness leadership kindness is not weakness. and yet, in my experience, individuals who sometimes cross healthy boundaries in church life, find it incongruous when i have to…">
+        <div class="blog-card__meta">Leadership <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Kindness is Not Weakness</h3>
         <p>Kindness is not weakness. And yet, in my experience, individuals who sometimes cross healthy boundaries in church life, find it incongruous when I have to…</p>
         <a href="blog/kindness-is-not-weakness.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="kindness goes a long way christian living i'm out and about quite a bit and run into all kinds of people, all makes and models! i'm sad to report that not all of my encounters are pleasant. some…">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-06-05" data-cat="Christian Living" data-search="kindness goes a long way christian living i'm out and about quite a bit and run into all kinds of people, all makes and models! i'm sad to report that not all of my encounters are pleasant. some…">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-06-05">June 5, 2026</time></div>
         <h3>Kindness Goes a Long Way</h3>
         <p>I'm out and about quite a bit and run into all kinds of people, all makes and models! I'm sad to report that not all of my encounters are pleasant. Some…</p>
         <a href="blog/kindness-goes-a-long-way.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="arguing the scriptures church life every tuesday evening, unless otherwise announced, a group of our men gather in the cafe to engage in a verse-by-verse study of selected bible books.">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Church Life" data-search="arguing the scriptures church life every tuesday evening, unless otherwise announced, a group of our men gather in the cafe to engage in a verse-by-verse study of selected bible books.">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>Arguing the Scriptures</h3>
         <p>Every Tuesday evening, unless otherwise announced, a group of our men gather in the cafe to engage in a verse-by-verse study of selected Bible books.</p>
         <a href="blog/arguing-the-scriptures.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="caught up in the moment christian living recently, while mowing the church lawn, i got caught up in a spirit of praise and worship. heaven came down and kissed me while grass flew everywhere!">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Christian Living" data-search="caught up in the moment christian living recently, while mowing the church lawn, i got caught up in a spirit of praise and worship. heaven came down and kissed me while grass flew everywhere!">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>Caught Up in the Moment</h3>
         <p>Recently, while mowing the church lawn, I got caught up in a spirit of praise and worship. Heaven came down and kissed me while grass flew everywhere!</p>
         <a href="blog/caught-up-in-the-moment.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="do you keep your word? christian living freelance writer nicole bradley-bernard said, &quot;people with good intentions make promises. but people with good character keep them.&quot; what is the big deal about a promise?">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Christian Living" data-search="do you keep your word? christian living freelance writer nicole bradley-bernard said, &quot;people with good intentions make promises. but people with good character keep them.&quot; what is the big deal about a promise?">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>Do You Keep Your Word?</h3>
         <p>Freelance writer Nicole Bradley-Bernard said, "People with good intentions make promises. But people with good character keep them." What is the big deal about a promise?</p>
         <a href="blog/do-you-keep-your-word.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Church Life" data-search="questions while at church church life gathering with god's people over the years has been a wonderful highlight of my life. i love the praise and worship, the preached word, and the fellowship.">
-        <div class="blog-card__meta">Church Life</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Church Life" data-search="questions while at church church life gathering with god's people over the years has been a wonderful highlight of my life. i love the praise and worship, the preached word, and the fellowship.">
+        <div class="blog-card__meta">Church Life <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>Questions While at Church</h3>
         <p>Gathering with God's people over the years has been a wonderful highlight of my life. I love the praise and worship, the preached Word, and the fellowship.</p>
         <a href="blog/questions-while-at-church.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Leadership" data-search="the problem with disagreeing leadership thirty years ago, when i was pastoring an assemblies of god church in alabama, emotional eruptions in a sunday school class necessitated my attention.">
-        <div class="blog-card__meta">Leadership</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Leadership" data-search="the problem with disagreeing leadership thirty years ago, when i was pastoring an assemblies of god church in alabama, emotional eruptions in a sunday school class necessitated my attention.">
+        <div class="blog-card__meta">Leadership <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>The Problem with Disagreeing</h3>
         <p>Thirty years ago, when I was pastoring an Assemblies of God church in Alabama, emotional eruptions in a Sunday School class necessitated my attention.</p>
         <a href="blog/the-problem-with-disagreeing.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Christian Living" data-search="what is a cult? christian living in today’s world we hear a lot of talk about cults. let me define the word &quot;cult.&quot; simply put, cults have three distinct characteristics.">
-        <div class="blog-card__meta">Christian Living</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Christian Living" data-search="what is a cult? christian living in today’s world we hear a lot of talk about cults. let me define the word &quot;cult.&quot; simply put, cults have three distinct characteristics.">
+        <div class="blog-card__meta">Christian Living <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>What is a Cult?</h3>
         <p>In today’s world we hear a lot of talk about cults. Let me define the word "cult." Simply put, cults have three distinct characteristics.</p>
         <a href="blog/what-is-a-cult.html" class="btn btn-dark">Read Post</a>
       </article>
-      <article class="blog-card" data-cat="Faith &amp; Salvation" data-search="why? faith &amp; salvation why? it's a question i'm ashamed to admit i've been asking a lot. more specifically, why am i on earth? i think everyone struggles with this question.">
-        <div class="blog-card__meta">Faith &amp; Salvation</div>
+      <article class="blog-card" data-date="2026-05-08" data-cat="Faith &amp; Salvation" data-search="why? faith &amp; salvation why? it's a question i'm ashamed to admit i've been asking a lot. more specifically, why am i on earth? i think everyone struggles with this question.">
+        <div class="blog-card__meta">Faith &amp; Salvation <span class="blog-card__sep" aria-hidden="true">&middot;</span> <time datetime="2026-05-08">May 8, 2026</time></div>
         <h3>Why?</h3>
         <p>Why? It's a question I'm ashamed to admit I've been asking a lot. More specifically, why am I on earth? I think everyone struggles with this question.</p>
         <a href="blog/why.html" class="btn btn-dark">Read Post</a>
@@ -369,10 +383,26 @@
     var chips = Array.prototype.slice.call(document.querySelectorAll('.filter-chip'));
     var countEl = document.getElementById('blog-count');
     var emptyEl = document.getElementById('blog-empty');
+    var sortSel = document.getElementById('blog-sort-select');
     var total = cards.length;
     var activeCat = 'all';
 
+    function sortCards() {
+      var mode = sortSel ? sortSel.value : 'newest';
+      var ordered = cards.slice().sort(function (a, b) {
+        if (mode === 'title') {
+          return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent, undefined, { sensitivity: 'base' });
+        }
+        var da = a.getAttribute('data-date') || '';
+        var db = b.getAttribute('data-date') || '';
+        if (da === db) return 0;
+        return (da < db ? 1 : -1) * (mode === 'oldest' ? -1 : 1);
+      });
+      ordered.forEach(function (c) { grid.appendChild(c); });
+    }
+
     function apply() {
+      sortCards();
       var q = (input.value || '').trim().toLowerCase();
       var shown = 0;
       cards.forEach(function (c) {
@@ -391,6 +421,7 @@
     }
 
     input.addEventListener('input', apply);
+    if (sortSel) sortSel.addEventListener('change', apply);
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () {
         chips.forEach(function (c) { c.classList.remove('active'); });
